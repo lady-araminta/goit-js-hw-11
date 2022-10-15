@@ -7,7 +7,6 @@ const KEY = '30416408-c6842ca729ef5a51b1af270dd';
 const params = `?key=${KEY}&image_type=photo&orientation=horizontal&safesearch=true&per_page=40`;
 
 export async function getPictures(searchQuery) {
-  console.log(searchQuery);
   if (searchQuery !== query) {
     page = 1;
     query = searchQuery;

@@ -1,5 +1,3 @@
-import { formRef, galleryRef, loadRef } from './refs';
-
 export function createMarkup(photos) {
   const {
     webformatURL,
@@ -10,7 +8,7 @@ export function createMarkup(photos) {
     comments,
     downloads,
   } = photos;
-  return `<div class="photo-card">
+  return `<a class="gallery__item" href="${largeImageURL}"><div class="photo-card">
   <img src="${webformatURL}" alt="${tags}" loading="lazy"/>
   <div class="info">
     <p class="info-item">
@@ -30,9 +28,5 @@ export function createMarkup(photos) {
       ${downloads}
     </p>
   </div>
-</div>`;
-}
-
-export function clearMarkup() {
-  galleryRef.innerHTML = '';
+</div></a>`;
 }

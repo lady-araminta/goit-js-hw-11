@@ -28,12 +28,20 @@ img {
   row-gap: 10px;
 }
 
+.gallery__item {
+  font-style: normal;
+  color: inherit;
+  text-decoration: none;
+  width: calc((100% - 60px) / 4);
+  display: flex;
+}
+
 .photo-card {
   display: flex;
   flex-direction: column;
-  border: 2px solid #eee;
+  border: 1px solid #a1e7f7;
   border-radius: 3px;
-  width: calc((100% - 45px) / 3);
+  width: 100%;
 }
 
 .info {
@@ -47,6 +55,7 @@ img {
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-size: 14px;
 }
 
 .header {
@@ -86,9 +95,16 @@ img {
   border-color: transparent;
   border-radius: 8px;
 }
+.search-input:hover,
+.search-input:focus {
+  outline: none;
+}
 
 .btn-load {
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+.js-load-btn {
+  display: none;
 }

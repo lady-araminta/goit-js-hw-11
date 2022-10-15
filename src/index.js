@@ -49,7 +49,7 @@ async function onLoadClick() {
   const { hits, totalHits } = response;
   const markup = hits.map(item => createMarkup(item)).join('');
   galleryRef.insertAdjacentHTML('beforeend', markup);
-
+  lightbox.refresh();
   const amountOfPages = totalHits / 40 - page;
   if (amountOfPages < 1) {
     loadRef.classList.add('js-load-btn');

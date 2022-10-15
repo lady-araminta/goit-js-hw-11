@@ -20,7 +20,6 @@ async function onSubmit(event) {
   const searchQuery = event.currentTarget.elements.searchQuery.value
     .trim()
     .toLowerCase();
-  console.log(searchQuery);
   if (!searchQuery) {
     Notiflix.Notify.failure('Enter a search query!');
     return;
@@ -52,13 +51,9 @@ async function onLoadClick() {
   const { hits, totalHits } = response;
   const markup = hits.map(item => createMarkup(item)).join('');
   galleryRef.insertAdjacentHTML('beforeend', markup);
+  lightbox.refresh();
   const amountOfPages = totalHits / 40 - page;
-  console.log(amountOfPages);
-  imagesAreOver(amountOfPages);
-}
-
-function imagesAreOver(pages) {
-  if (pages < 1) {
+  if (amountOfPages < 1) {
     loadRef.classList.add('js-load-btn');
     Notiflix.Notify.info(
       "We're sorry, but you've reached the end of search results."

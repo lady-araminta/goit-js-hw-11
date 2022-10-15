@@ -7,9 +7,10 @@ body {
     Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #fafafa;
+  background-color: #dcf6fc;
   color: #212121;
   line-height: 1.5;
+  padding-top: 80px;
 }
 
 img {
@@ -46,4 +47,48 @@ img {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.header {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 80px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  justify-content: center;
+  background-image: linear-gradient(to right, #004ff9, #fff94c);
+}
+
+.btn {
+  min-width: 120px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: #fff94c;
+  border-color: transparent;
+  border-radius: 8px;
+  transition-property: background-color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+.btn:hover,
+.btn:focus {
+  background-color: #f3eb01;
+}
+
+.search-input {
+  min-width: 180px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 5px;
+  border-color: transparent;
+  border-radius: 8px;
+}
+
+.btn-load {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }

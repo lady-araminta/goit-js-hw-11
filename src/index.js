@@ -3,17 +3,14 @@ import Notiflix from 'notiflix';
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 import { getPictures, page, query } from './js/pixabay';
-import { createMarkup, clearMarkup } from './js/markup';
+import { createMarkup } from './js/markup';
 import { formRef, galleryRef, loadRef } from './js/refs';
 
 formRef.addEventListener('submit', onSubmit);
 loadRef.addEventListener('click', onLoadClick);
-galleryRef.addEventListener('click', onImgClick);
+// galleryRef.addEventListener('click', onImgClick);
 
-const lightbox = new SimpleLightbox('.gallery a', {
-  captionsData: 'alt',
-  captionDelay: 250,
-});
+const lightbox = new SimpleLightbox('.gallery a');
 
 async function onSubmit(event) {
   event.preventDefault();
@@ -40,6 +37,7 @@ async function onSubmit(event) {
       loadRef.classList.remove('js-load-btn');
       page += 1;
     }
+    lightbox.refresh();
   } catch (error) {
     Notiflix.Notify.failure('Something went wrong! Please retry');
     console.log(error);
@@ -51,7 +49,7 @@ async function onLoadClick() {
   const { hits, totalHits } = response;
   const markup = hits.map(item => createMarkup(item)).join('');
   galleryRef.insertAdjacentHTML('beforeend', markup);
-  lightbox.refresh();
+
   const amountOfPages = totalHits / 40 - page;
   if (amountOfPages < 1) {
     loadRef.classList.add('js-load-btn');
@@ -61,9 +59,9 @@ async function onLoadClick() {
   }
 }
 
-function onImgClick(event) {
-  event.preventDefault();
-  if (event.target.nodeName !== 'IMG') {
-    return;
-  }
-}
+// function onImgClick(event) {
+//   event.preventDefault();
+//   if (event.target.nodeName !== 'IMG') {
+//     return;
+//   }
+// }
